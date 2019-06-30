@@ -47,8 +47,12 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://tylerobriant.us3.list-manage.com/subscribe/post?u=16ac3be731b7b819cf76566b1&amp;id=a0b7cdb7d5", // add your MC list endpoint here; see instructions below
+      },
+    },
   ],
 }

@@ -1,9 +1,7 @@
 ---
-path: "/articles/test-post-2"
+path: "/articles/test-post-69"
 date: "2019-05-04"
 title: "Test article 2"
 ---
-
-### Test Post
 
 Hello this is a test

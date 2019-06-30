@@ -14,7 +14,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import Button from "@material-ui/core/Button"
 import { ThemeProvider } from "@material-ui/styles"
-
+import theme from "../theme"
 import Header from "./header"
 import "./layout.css"
 
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header />
       <div
         style={{
@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer></footer>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 

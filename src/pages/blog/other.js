@@ -3,19 +3,19 @@ import { graphql } from "gatsby"
 import BlogWrapper from "../../components/blog-wrapper"
 import BlogLink from "../../components/blog-link"
 
-const Articles = ({
+const Other = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
   const posts = edges
-    .filter(edge => edge.node.frontmatter.path.includes("articles")) // You can filter your posts based on some criteria
+    .filter(edge => edge.node.frontmatter.path.includes("other")) // You can filter your posts based on some criteria
     .map(edge => <BlogLink key={edge.node.id} post={edge.node} />)
 
-  return <BlogWrapper active="articles">{posts}</BlogWrapper>
+  return <BlogWrapper active="other">{posts}</BlogWrapper>
 }
 
-export default Articles
+export default Other
 
 export const pageQuery = graphql`
   query {

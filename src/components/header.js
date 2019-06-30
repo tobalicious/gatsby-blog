@@ -33,30 +33,25 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header>
-      <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-          <AppBar position="static">
-            <Toolbar color="primary">
-              <Typography
-                className={classes.title}
-                variant="h5"
-                color="inherit"
-              >
-                <b>TOB</b>
-              </Typography>
-              <Link to="/blog/articles" className={classes.gLink}>
-                <b>Blog</b>
-              </Link>
-              <Link to="/resume" className={classes.gLink}>
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar color="primary">
+            <Typography className={classes.title} variant="h5" color="inherit">
+              <b>TOB</b>
+            </Typography>
+            <Link to="/blog/articles" className={classes.gLink}>
+              <b>Blog</b>
+            </Link>
+            {/*<Link to="/resume" className={classes.gLink}>
                 <b>Resume</b>
               </Link>
-              <Link to="/mailing-list" className={classes.gLink}>
-                <b>Mailing List</b>
-              </Link>
-            </Toolbar>
-          </AppBar>
-        </div>
-      </ThemeProvider>
+              */}
+            <Link to="/mailing-list" className={classes.gLink}>
+              <b>Mailing List</b>
+            </Link>
+          </Toolbar>
+        </AppBar>
+      </div>
     </header>
   )
 }

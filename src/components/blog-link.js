@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { navigate } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
@@ -17,20 +17,24 @@ const useStyles = makeStyles(theme => ({
   link: {
     color: "#000",
     textDecoration: "none",
-    margin: "0.5em",
     cursor: "pointer",
+    marginTop: "1.5em",
+    paddingLeft: "1em",
   },
 }))
 const BlogLink = ({ post }) => {
   const classes = useStyles()
 
   return (
-    <Link className={classes.link} to={post.frontmatter.path}>
+    <div
+      onClick={e => navigate(post.frontmatter.path)}
+      className={classes.link}
+    >
       <div className={classes.title}>{post.frontmatter.title}</div>
       <div className={classes.subtitle}>
         | <i>{post.frontmatter.date}</i>
       </div>
-    </Link>
+    </div>
   )
 }
 
