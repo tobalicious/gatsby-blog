@@ -9,7 +9,7 @@ const Questions = ({
   },
 }) => {
   const posts = edges
-    .filter(edge => edge.node.frontmatter.path.includes("questions")) // You can filter your posts based on some criteria
+    .filter(edge => edge.node.frontmatter.path.includes("questions"))
     .map(edge => <BlogLink key={edge.node.id} post={edge.node} />)
 
   return <BlogWrapper active="questions">{posts}</BlogWrapper>

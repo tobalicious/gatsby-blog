@@ -9,7 +9,7 @@ const Other = ({
   },
 }) => {
   const posts = edges
-    .filter(edge => edge.node.frontmatter.path.includes("other")) // You can filter your posts based on some criteria
+    .filter(edge => edge.node.frontmatter.path.includes("other"))
     .map(edge => <BlogLink key={edge.node.id} post={edge.node} />)
 
   return <BlogWrapper active="other">{posts}</BlogWrapper>

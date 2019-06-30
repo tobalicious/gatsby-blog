@@ -1,21 +1,37 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
+import BlogWrapper from "../components/blog-wrapper"
+import BlogLink from "../components/blog-link"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const Articles = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
+  //window.history.pushState("object or string", "Title", "/blogs/articles")
+  const posts = edges
+    .filter(edge => edge.node.frontmatter.path.includes("articles"))
+    .map(edge => <BlogLink key={edge.node.id} post={edge.node} />)
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+  return <BlogWrapper active="articles">{posts}</BlogWrapper>
+}
 
-export default IndexPage
+export default Articles
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            path
+            title
+          }
+        }
+      }
+    }
+  }
+`

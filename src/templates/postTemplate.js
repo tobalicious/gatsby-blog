@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1em",
   },
 }))
-//https://tylerobriant.us3.list-manage.com/subscribe/post?u=16ac3be731b7b819cf76566b1&amp;id=a0b7cdb7d5
+
 export default function Template({ data }) {
   const classes = useStyles()
-  const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { markdownRemark } = data
+  const { html } = markdownRemark
 
   return (
     <BlogWrapper active="articles">
