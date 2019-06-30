@@ -1,22 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BlogWrapper from "../components/blog-wrapper"
-import BlogLink from "../components/blog-link"
+import BlogWrapper from "../../components/blog-wrapper"
+import BlogLink from "../../components/blog-link"
 
-const Articles = ({
+const Questions = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
-  //window.history.pushState("object or string", "Title", "/blogs/articles")
   const posts = edges
-    .filter(edge => edge.node.frontmatter.path.includes("articles"))
+    .filter(edge => edge.node.frontmatter.path.includes("questions"))
     .map(edge => <BlogLink key={edge.node.id} post={edge.node} />)
 
-  return <BlogWrapper active="articles">{posts}</BlogWrapper>
+  return <BlogWrapper active="questions">{posts}</BlogWrapper>
 }
 
-export default Articles
+export default Questions
 
 export const pageQuery = graphql`
   query {
